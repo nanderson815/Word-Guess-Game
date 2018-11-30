@@ -47,7 +47,7 @@ document.onkeydown = function (event) {
                 if (activeWord[i] === Guess) {
                     wordInProgress[i] = Guess;
                 }
-                console.log(wordInProgress);
+                correctLetters.innerHTML = wordInProgress.join("  ");
             }
 
             lettersGuessed.innerHTML = userGuesses.join(", ");
