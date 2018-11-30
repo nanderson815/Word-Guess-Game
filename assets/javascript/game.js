@@ -1,6 +1,10 @@
 
 var lettersGuessed = document.getElementById("lettersGuessed");
-var guessesRemaining = document.getElementById("guessesRemaining");
+
+
+// Guesses Counter Variables
+var guessesCounter = document.getElementById("guessesCounter");
+var guessesRemaining = 10;
 
 var words = ["Uga", "Sanford", "Rodrigo", "Hedges", "Kirby", "Chubb", "Gurley",];
 var userGuesses = [];
@@ -14,11 +18,15 @@ selectWord();
 
 document.onkeydown = function (event) {
 
+
+
     if (userGuesses.length < 10) {
         var Guess = event.key;
         if (userGuesses.indexOf(Guess) === -1) {
             userGuesses.push(Guess);
             lettersGuessed.innerHTML = userGuesses;
+            guessesRemaining -= 1;
+            guessesCounter.innerHTML = guessesRemaining;
         }
     }
 }
