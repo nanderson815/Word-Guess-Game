@@ -8,7 +8,7 @@ var guessesCounter = document.getElementById("guessesCounter");
 var guessesRemaining = 10;
 
 // Array of hangman words
-var words = ["uga", "sanford", "rodrigo", "hedges", "kirby", "chubb", "gurley",];
+var words = ["uga", "sanford", "rodrigo", "hedges", "kirby", "chubb", "gurley", "athens", "dawgs", "georgia", "sec", "football", "bulldawgs"];
 
 // grabs correct letters HTML Id
 var correctLetters = document.getElementById("correctLetters");
