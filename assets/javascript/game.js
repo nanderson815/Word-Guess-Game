@@ -39,6 +39,9 @@ console.log(activeWord);
 
 // executes on key down....
 document.onkeydown = function (event) {
+
+
+
     // Only Allows the user 10 guesses.
     if (userGuesses.length < 10) {
         // logs user keystroke as Guess
@@ -57,10 +60,19 @@ document.onkeydown = function (event) {
             }
             // Prints all guessed letters to HTML
             lettersGuessed.innerHTML = userGuesses.join(", ");
-            
+
             // Counts down remaining guesses by 1 after each keydown.
             guessesRemaining -= 1;
             guessesCounter.innerHTML = guessesRemaining;
         }
+    }
+}
+
+// Checks to see if guess is correct by looking for "-" in wordInProgress array.
+document.onkeyup = function (event) {
+    if (wordInProgress.indexOf('—') > -1) {
+        console.log(" - found inside your_string");
+    } else {
+        console.log("guess is correct.");
     }
 }
