@@ -71,7 +71,9 @@ document.onkeydown = function (event) {
 // Checks to see if guess is correct by looking for "-" in wordInProgress array.
 document.onkeyup = function (event) {
     if (wordInProgress.indexOf('—') > -1) {
-        console.log(" - found inside your_string");
+        if (userGuesses.length == 10 ){
+            alert("You lose! The correct word was: " + activeWord);
+        }
     } else {
         console.log("guess is correct.");
         audio.play();
