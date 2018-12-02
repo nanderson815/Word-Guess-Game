@@ -22,7 +22,7 @@ var userGuesses = [];
 // Array to hold guessed letters and dashes for unknown letters.
 var wordInProgress = [];
 
-
+var audio = new Audio('assets/audio/fightsong.mp3');
 
 // Selects random word from words array on load
 function selectWord() {
@@ -74,5 +74,6 @@ document.onkeyup = function (event) {
         console.log(" - found inside your_string");
     } else {
         console.log("guess is correct.");
+        audio.play();
     }
 }
