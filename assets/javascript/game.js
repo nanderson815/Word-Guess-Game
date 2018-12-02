@@ -22,11 +22,13 @@ var userGuesses = [];
 // Array to hold guessed letters and dashes for unknown letters.
 var wordInProgress = [];
 
+// Links audio
 var audio = new Audio('assets/audio/fightsong.mp3');
 
 // Selects random word from words array on load
 function selectWord() {
     activeWord = words[Math.floor(Math.random() * words.length)];
+    // Replaces word letters with dashes until the correct character is guessed.
     for (i = 0; i < activeWord.length; i++) {
         var unknown = "—";
         wordInProgress.push(unknown);
@@ -36,6 +38,27 @@ function selectWord() {
 selectWord();
 console.log(activeWord);
 
+// Resets the game function
+function resetGame() {
+    // Stops the music.
+    audio.pause();
+    // Removes all guessed letters and replace with dashes.
+    wordInProgress = [];
+    userGuesses = [];
+    lettersGuessed.innerHTML = userGuesses.join(", ");
+    // Resets number of guesses.
+    guessesRemaining = 10;
+    guessesCounter.innerHTML = guessesRemaining;
+    // Hides the play again button.
+    resetButton.style.visibility = "hidden";
+}
+
+// On Click resets game
+var resetButton = document.getElementById("resetButton");
+resetButton.onclick = function reset() {
+    resetGame();
+    selectWord();
+}
 
 // executes on key down....
 document.onkeydown = function (event) {
@@ -71,12 +94,13 @@ document.onkeydown = function (event) {
 // Checks to see if guess is correct by looking for "-" in wordInProgress array.
 document.onkeyup = function (event) {
     if (wordInProgress.indexOf('—') > -1) {
-        if (userGuesses.length == 10 ){
+        if (userGuesses.length == 10) {
             alert("You lose! The correct word was: " + activeWord);
+            resetButton.style.visibility = "visible";
         }
     } else {
         console.log("guess is correct.");
         audio.play();
-        document.getElementById("resetButton").style.visibility = "visible";
+        resetButton.style.visibility = "visible";
     }
 }
