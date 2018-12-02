@@ -75,5 +75,6 @@ document.onkeyup = function (event) {
     } else {
         console.log("guess is correct.");
         audio.play();
+        document.getElementById("resetButton").style.visibility = "visible";
     }
 }
