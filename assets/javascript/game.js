@@ -27,6 +27,10 @@ var leftImage = document.getElementById("leftImage");
 // Links audio
 var audio = new Audio('assets/audio/fightsong.mp3');
 
+// wincounter
+var winCounter = document.getElementById("winCounter");
+var wins = 0;
+
 // Selects random word from words array on load
 function selectWord() {
     activeWord = words[Math.floor(Math.random() * words.length)];
@@ -106,26 +110,30 @@ document.onkeyup = function (event) {
     } else {
         // play UGA fight song. Show reset button.
         audio.play();
+        // increase win counter by one.
+        wins += 1;
+        winCounter.innerHTML = wins;
+        // Display victory image
         resetButton.style.visibility = "visible";
         if (activeWord == "rodrigo") {
             leftImage.src = "assets/images/rodrigo.jpg";
-        } else if  (activeWord == "uga"){
+        } else if (activeWord == "uga") {
             leftImage.src = "assets/images/uga.jpg";
-        } else if (activeWord == "sanford"){
+        } else if (activeWord == "sanford") {
             leftImage.src = "assets/images/sanford.jpg";
-        } else if (activeWord == "hedges"){
+        } else if (activeWord == "hedges") {
             leftImage.src = "assets/images/hedges.jpg";
-        } else if (activeWord == "kirby"){
+        } else if (activeWord == "kirby") {
             leftImage.src = "assets/images/kirby.jpg";
-        } else if (activeWord == "chubb"){
+        } else if (activeWord == "chubb") {
             leftImage.src = "assets/images/chubb.jpg";
-        } else if (activeWord == "gurley"){
+        } else if (activeWord == "gurley") {
             leftImage.src = "assets/images/gurley.jpg";
-        } else if (activeWord == "athens"){
+        } else if (activeWord == "athens") {
             leftImage.src = "assets/images/athens.jpeg";
-        } else if (activeWord == "dawgs"){
+        } else if (activeWord == "dawgs") {
             leftImage.src = "assets/images/dawgs.jpg";
-        } else if (activeWord == "bulldawgs"){
+        } else if (activeWord == "bulldawgs") {
             leftImage.src = "assets/images/bulldawgs.jpg";
         } else {
             leftImage.src = "assets/images/football.jpg";
